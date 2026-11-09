@@ -8,6 +8,11 @@ output "storage_account_name" {
   description = "State storage account name."
 }
 
+output "storage_account_id" {
+  value       = azurerm_storage_account.tfstate.id
+  description = "State storage account ID"
+}
+
 output "container_name" {
   value       = azurerm_storage_container.tfstate.name
   description = "State container name."
