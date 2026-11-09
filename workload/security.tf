@@ -5,13 +5,13 @@ resource "random_password" "sql_admin_pass" {
 }
 
 resource "azurerm_key_vault" "kv" {
-  name                      = "kv-${var.project_name}-${random_string.suffix.result}"
-  location                  = azurerm_resource_group.rg.location
-  resource_group_name       = azurerm_resource_group.rg.name
-  tenant_id                 = data.azurerm_client_config.current.tenant_id
-  sku_name                  = "standard"
-  enable_rbac_authorization = true
-  purge_protection_enabled  = false
+  name                       = "kv-${var.project_name}-${random_string.suffix.result}"
+  location                   = azurerm_resource_group.rg.location
+  resource_group_name        = azurerm_resource_group.rg.name
+  tenant_id                  = data.azurerm_client_config.current.tenant_id
+  sku_name                   = "standard"
+  rbac_authorization_enabled = true
+  purge_protection_enabled   = false
 }
 
 # Grant deploying identity Secrets Officer permissions to write secrets
